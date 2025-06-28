@@ -54,11 +54,13 @@ git log --oneline       // Condensed view
 git show [commit]       // Show commit details
 
 /*Undoing & Reverting*/
-git reset [file]            // Unstage file (if we add unwanted file and want to reset the state from staged to modified)
-git reset                   // Unstage all files
-git reset HEAD~1            // Used after commit to undo step 'commit' and 'add' 
-git reset --hard [commit]   // Reset to specific commit
-git revert [commit]         // Create a revert commit
+git reset [file]                    // Unstage file (if we add unwanted file and want to reset the state from staged to modified)
+git reset                           // Unstage all files
+git reset HEAD~1                    // Used after commit to undo step 'commit' and 'add' (used to go 1 commit behind)
+git log                             // To see commit history and get 'commit-hash'
+git log [commit-hash]               // use that commit hash where you have to go (you will get to see code written after that commit (green line will be visible at starting))
+git reset --hard [commit-hash]      // Reset to specific commit (it will erase the changes written after that commit)
+git revert [commit]                 // Create a revert commit
 
 /*Tagging*/
 git tag [tag_name]      // Create a tag
