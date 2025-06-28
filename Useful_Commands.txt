@@ -5,6 +5,11 @@ ls                          // Lists files and directories in the current direct
 ls -a                       // Show hidden files
 mkdir [directory_name]      // Creates a new directory.
 pwd                         // This shows your current working directory
+touch [file name]           // Creates new file in that directory 
+// (use rm commands carefully as deleted files cannot me recovered)
+rm [file name]              // Delete file
+rmdir [dir/folder name]     // Deletes empty folder (folder must be empty)
+rm -rf [dir/folder name]    // Deletes folder and files inside it 
 
 /*Getting Started*/
 git --version                                              // Check Git version
@@ -23,40 +28,45 @@ git diff --staged         // Show staged changes
 
 /*Commiting Changes*/
 git commit -m "message"                 // Commit staged changes (in "" write whats new in your commit)
+git commit -am "message"                // Shorthand for performing add and commit together
 git commit --amend -m "new message"     // Amend last commit
 
 /*Remote Repositories*/
 git remote -v                   // List remote repositories
 git remote add origin [url]     // Add remote repository
-git push -u origin [branch]     // Push branch to remote
-git pull origin [branch]        // Pull from remote branch
+git push origin main            // Push changes to remote 
+git push -u origin [branch]     // Push branch to remote and set upstream (once upstream is set then we can simply write 'git push')
+git pull origin [branch]        // Pull from remote branch (reflect changes made on remote to our local system)
 git fetch                       // Fetch latest from remote
 
 /*Branch Management*/
-git branch                      # List all branches
-git branch [branch_name]        # Create new branch
-git checkout [branch_name]      # Switch to branch
-git checkout -b [branch_name]   # Create and switch
-git merge [branch_name]         # Merge branch into current
-git branch -d [branch_name]     # Delete a branch
+git branch                          // Check current Branch and list other branches
+git branch -M [new name for branch] // Rename branch
+git branch [branch_name]            // Create new branch
+git checkout [branch_name]          // Navigate to other branch
+git checkout -b [branch_name]       // Create and switch to new branch
+git merge [branch_name]             // Merge branch into current
+git branch -d [branch_name]         // Delete a branch (not the branch in which you are)
 
 /*History and Log*/
-git log                 # View commit history
-git log --oneline       # Condensed view
-git show [commit]       # Show commit details
+git log                 // View commit history
+git log --oneline       // Condensed view
+git show [commit]       // Show commit details
 
 /*Undoing & Reverting*/
-git reset [file]            # Unstage file
-git reset --hard [commit]   # Reset to specific commit
-git revert [commit]         # Create a revert commit
+git reset [file]            // Unstage file (if we add unwanted file and want to reset the state from staged to modified)
+git reset                   // Unstage all files
+git reset HEAD~1            // Used after commit to undo step 'commit' and 'add' 
+git reset --hard [commit]   // Reset to specific commit
+git revert [commit]         // Create a revert commit
 
 /*Tagging*/
-git tag [tag_name]      # Create a tag
-git tag -d [tag_name]   # Delete a tag
+git tag [tag_name]      // Create a tag
+git tag -d [tag_name]   // Delete a tag
 
 /*Stashing Changes*/
-git stash               # Save current changes temporarily
-git stash apply         # Reapply stashed changes
+git stash               // Save current changes temporarily
+git stash apply         // Reapply stashed changes
 
 /*Cleaning Working Directory*/
-git clean -fd           # Remove untracked files and directories
+git clean -fd           // Remove untracked files and directories
